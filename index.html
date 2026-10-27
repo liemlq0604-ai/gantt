@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#162b44">
+  <title>Production Planner | Gantt máy</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-icon">G</div><div><strong>GANTT PLANNER</strong><small>Production scheduling</small></div></div>
+      <div class="side-label">QUẢN LÝ</div>
+      <nav id="nav">
+        <button type="button" class="nav-link active" data-tab="po"><span>01</span> PO &amp; Lô sản xuất</button>
+        <button type="button" class="nav-link" data-tab="master"><span>02</span> Master Data lô</button>
+        <button type="button" class="nav-link" data-tab="plan"><span>03</span> Kế hoạch theo ngày</button>
+        <button type="button" class="nav-link" data-tab="gantt"><span>04</span> Gantt máy</button>
+      </nav>
+      <div class="side-bottom">
+        <button type="button" id="backupBtn" class="side-action">↓ Sao lưu dữ liệu JSON</button>
+        <button type="button" id="restoreBtn" class="side-action">↑ Khôi phục JSON</button>
+        <input type="file" id="restoreInput" accept=".json,application/json" hidden>
+        <p>Dữ liệu lưu trên trình duyệt này. Sao lưu JSON để chuyển máy hoặc phòng mất dữ liệu.</p>
+      </div>
+    </aside>
+    <main class="content">
+      <header class="topbar">
+        <div><div class="eyebrow">LẬP KẾ HOẠCH SẢN XUẤT</div><h1 id="pageTitle">PO &amp; Lô sản xuất</h1></div>
+        <div class="toolbar"><button type="button" id="demoBtn" class="btn secondary">Nạp dữ liệu mẫu</button><button type="button" id="exportBtn" class="btn primary">Xuất Excel (2 sheet)</button></div>
+      </header>
+      <div id="flash" class="flash" role="status" aria-live="polite"></div>
+      <section class="stats" id="stats"></section>
+      <section id="page" class="page" aria-live="polite"></section>
+      <footer class="footer">Kế hoạch theo ngày · Gantt máy lấy từ dữ liệu từng dòng · Không thay thế dữ liệu ERP</footer>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>
